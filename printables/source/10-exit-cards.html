@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Exit Cards</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>@page{size:8.5in 11in;margin:0}
+:root{--ink:#18202E;--muted:#586174;--line:#C9CFD9;--soft:#EEF0F4;
+--d1:#E39A2D;--d2:#2E58D6;--d3:#D9573F;--d4:#13887D;--d5:#8B4FA6;--note:#FFE98A;--note-ink:#3B3210;
+--fd:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;--fb:"Hanken Grotesk","Helvetica Neue",system-ui,sans-serif;
+--fm:"JetBrains Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:var(--fb)}
+h1,h2,h3{font-family:var(--fd);margin:0;line-height:1.05;text-wrap:balance}
+p{margin:0}
+.sheet{position:relative;overflow:hidden;break-after:page;display:flex;flex-direction:column}
+.sheet:last-child{break-after:auto}
+.eyebrow{font-family:var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dots{display:inline-flex;gap:.35em}.dots i{display:block;width:.8em;height:.8em;border-radius:50%}
+.foot{display:flex;justify-content:space-between;align-items:center;font-family:var(--fm);color:var(--muted);letter-spacing:.06em}
+
+.sheet{width:8.5in;height:11in;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+.card{padding:.5in .45in;display:flex;flex-direction:column;gap:.12in}
+.card:nth-child(odd){border-right:1.5px dashed var(--muted)}
+.card:nth-child(-n+2){border-bottom:1.5px dashed var(--muted)}
+.hd{display:flex;justify-content:space-between;align-items:center;margin-bottom:.1in}
+.hd .eyebrow{font-size:8pt}
+.q{font-family:var(--fd);font-weight:700;font-size:15pt;line-height:1.15;margin-top:.12in}
+.ln{display:block;border-bottom:1.5px solid var(--line);height:.38in}
+</style></head><body><section class="sheet"><div class="card"><div class="hd"><span class="eyebrow">Before you go</span><span class="dots"><i style="background:var(--d1)"></i><i style="background:var(--d4)"></i><i style="background:var(--d3)"></i><i style="background:var(--d2)"></i><i style="background:var(--d5)"></i></span></div>
+<p class="q">One word for how you're feeling about the semester</p><i class="ln"></i>
+<p class="q">One thing you'll try in your course</p><i class="ln"></i><i class="ln"></i><i class="ln"></i></div><div class="card"><div class="hd"><span class="eyebrow">Before you go</span><span class="dots"><i style="background:var(--d1)"></i><i style="background:var(--d4)"></i><i style="background:var(--d3)"></i><i style="background:var(--d2)"></i><i style="background:var(--d5)"></i></span></div>
+<p class="q">One word for how you're feeling about the semester</p><i class="ln"></i>
+<p class="q">One thing you'll try in your course</p><i class="ln"></i><i class="ln"></i><i class="ln"></i></div><div class="card"><div class="hd"><span class="eyebrow">Before you go</span><span class="dots"><i style="background:var(--d1)"></i><i style="background:var(--d4)"></i><i style="background:var(--d3)"></i><i style="background:var(--d2)"></i><i style="background:var(--d5)"></i></span></div>
+<p class="q">One word for how you're feeling about the semester</p><i class="ln"></i>
+<p class="q">One thing you'll try in your course</p><i class="ln"></i><i class="ln"></i><i class="ln"></i></div><div class="card"><div class="hd"><span class="eyebrow">Before you go</span><span class="dots"><i style="background:var(--d1)"></i><i style="background:var(--d4)"></i><i style="background:var(--d3)"></i><i style="background:var(--d2)"></i><i style="background:var(--d5)"></i></span></div>
+<p class="q">One word for how you're feeling about the semester</p><i class="ln"></i>
+<p class="q">One thing you'll try in your course</p><i class="ln"></i><i class="ln"></i><i class="ln"></i></div></section></body></html>

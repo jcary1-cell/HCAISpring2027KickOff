@@ -173,6 +173,23 @@ section.prep > h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 800; l
 .questions b { font-family: var(--f-display); font-size: 1.05rem; }
 .questions p { color: var(--muted); font-size: .93rem; }
 
+/* Printables downloads */
+.dl-head h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: .4rem; }
+.dl-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem; }
+.dl-head p { color: var(--muted); max-width: 60ch; }
+.dl-all { display: inline-flex; align-items: center; gap: .6rem; padding: .7rem 1.1rem; border-radius: 99px; background: var(--ink); color: var(--sheet); text-decoration: none; font-weight: 600; font-size: .95rem; white-space: nowrap; }
+.dl-all:hover { opacity: .9; }
+.dl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 11.5rem), 1fr)); gap: .75rem; list-style: none; margin: 0; padding: 0; }
+.dl-grid > li { display: flex; }
+.dl { --c: var(--dot-1); flex: 1; display: grid; grid-template-rows: auto 1fr auto; gap: .45rem; background: var(--sheet); border: 1px solid var(--line); border-radius: 12px; padding: 1rem 1.1rem; text-decoration: none; color: inherit; min-width: 0; transition: border-color .15s, transform .15s; }
+.dl:hover { border-color: var(--c); }
+@media (prefers-reduced-motion: no-preference) { .dl:hover { transform: translateY(-2px); } }
+.dl .dl-top { display: flex; justify-content: space-between; align-items: center; gap: .5rem; }
+.dl .dl-top i { width: .8rem; height: .8rem; border-radius: 50%; background: var(--c); flex: none; }
+.dl b { font-family: var(--f-display); font-size: 1.05rem; line-height: 1.2; }
+.dl span.d { font-size: .88rem; color: var(--muted); }
+.dl .dl-go { font-family: var(--f-mono); font-size: .75rem; letter-spacing: .06em; color: var(--ink); display: flex; justify-content: space-between; gap: .5rem; white-space: nowrap; border-top: 1px dashed var(--line); padding-top: .5rem; }
+.dl .dl-go span:last-child { color: var(--c); font-weight: 600; }
 footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
 
 @media (max-width: 860px) {
@@ -486,7 +503,7 @@ footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--lin
     <div class="card">
       <h3>Supplies</h3>
       <ul class="checks">
-        <li><label><input type="checkbox" id="s1"><span>Name tents</span></label></li>
+        <li><label><input type="checkbox" id="s1"><span>Cardstock for name tents and menus</span></label></li>
         <li><label><input type="checkbox" id="s2"><span>Index cards, 2–3 packs</span></label></li>
         <li><label><input type="checkbox" id="s3"><span>Sticky notes, ~10 per person, a couple of colors</span></label></li>
         <li><label><input type="checkbox" id="s4"><span>Large sticky notes or cardstock for pillar names</span></label></li>
@@ -506,6 +523,10 @@ footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--lin
         <li><label><input type="checkbox" id="p5"><span>Tight / Loose column headers</span></label></li>
         <li><label><input type="checkbox" id="p6"><span>Course map poster</span></label></li>
         <li><label><input type="checkbox" id="p7"><span>Meeting-time options poster</span></label></li>
+        <li><label><input type="checkbox" id="p8"><span>Pillars brainstorm prompt poster</span></label></li>
+        <li><label><input type="checkbox" id="p9"><span>Name tents</span></label></li>
+        <li><label><input type="checkbox" id="p10"><span>Exit cards</span></label></li>
+        <li><a href="#printables" style="font-weight:600">Get all the printables ↓</a></li>
       </ul>
     </div>
     <div class="card">
@@ -517,6 +538,66 @@ footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--lin
       </ul>
     </div>
   </div>
+
+  <div class="dl-head" id="printables">
+    <div>
+      <h2>Printables</h2>
+      <p>Every poster, card, and handout for the day, ready to print. Posters are 11×17 and scale up cleanly if you'd rather have a print shop make them bigger.</p>
+    </div>
+    <a class="dl-all" href="printables/hcai-kickoff-printables.zip" download>Download all (.zip) ↓</a>
+  </div>
+  <ul class="dl-grid">
+    <li><a class="dl" href="printables/01-still-wondering-poster.pdf" download style="--c:var(--dot-2)">
+      <span class="dl-top"><span class="eyebrow">Welcome → close</span><i aria-hidden="true"></i></span>
+      <span><b>Still Wondering poster</b><br><span class="d">Parking lot for questions. Up on the wall from 11:20.</span></span>
+      <span class="dl-go"><span>11×17</span><span>PDF ↓</span></span>
+    </a></li>
+    <li><a class="dl" href="printables/02-where-are-you-coming-from-poster.pdf" download style="--c:var(--dot-1)">
+      <span class="dl-top"><span class="eyebrow">Arrival</span><i aria-hidden="true"></i></span>
+      <span><b>Where are you coming from?</b><br><span class="d">Arrival poster. People sticker their home department.</span></span>
+      <span class="dl-go"><span>11×17</span><span>PDF ↓</span></span>
+    </a></li>
+    <li><a class="dl" href="printables/03-pillars-brainstorm-prompt-poster.pdf" download style="--c:var(--dot-4)">
+      <span class="dl-top"><span class="eyebrow">Shared vision</span><i aria-hidden="true"></i></span>
+      <span><b>Pillars brainstorm prompt</b><br><span class="d">The giant sticky-note prompt for the silent brainstorm.</span></span>
+      <span class="dl-go"><span>11×17</span><span>PDF ↓</span></span>
+    </a></li>
+    <li><a class="dl" href="printables/04-tight-loose-wall-headers.pdf" download style="--c:var(--dot-4)">
+      <span class="dl-top"><span class="eyebrow">Shared vision</span><i aria-hidden="true"></i></span>
+      <span><b>Tight / Loose wall headers</b><br><span class="d">Three column headers for the butcher-paper wall.</span></span>
+      <span class="dl-go"><span>Letter ×3</span><span>PDF ↓</span></span>
+    </a></li>
+    <li><a class="dl" href="printables/05-course-map-poster.pdf" download style="--c:var(--dot-4)">
+      <span class="dl-top"><span class="eyebrow">Shared vision</span><i aria-hidden="true"></i></span>
+      <span><b>Course map poster</b><br><span class="d">Faculty down the side, pillars across the top, dots in between.</span></span>
+      <span class="dl-go"><span>17×11</span><span>PDF ↓</span></span>
+    </a></li>
+    <li><a class="dl" href="printables/06-conversation-menu.pdf" download style="--c:var(--dot-3)">
+      <span class="dl-top"><span class="eyebrow">Lunch</span><i aria-hidden="true"></i></span>
+      <span><b>Food for Thought menu</b><br><span class="d">Conversation menu for each lunch table. Print on cardstock.</span></span>
+      <span class="dl-go"><span>Letter</span><span>PDF ↓</span></span>
+    </a></li>
+    <li><a class="dl" href="printables/07-blueprint-scavenger-hunt.pdf" download style="--c:var(--dot-2)">
+      <span class="dl-top"><span class="eyebrow">Canvas Hub</span><i aria-hidden="true"></i></span>
+      <span><b>Blueprint scavenger hunt</b><br><span class="d">Pair checklist for the Canvas hour. Two per page, cut in half.</span></span>
+      <span class="dl-go"><span>Letter, 2-up</span><span>PDF ↓</span></span>
+    </a></li>
+    <li><a class="dl" href="printables/08-meeting-times-poster.pdf" download style="--c:var(--dot-5)">
+      <span class="dl-top"><span class="eyebrow">Wrap-up</span><i aria-hidden="true"></i></span>
+      <span><b>Meeting times poster</b><br><span class="d">Write in a few options and let people dot what works.</span></span>
+      <span class="dl-go"><span>11×17</span><span>PDF ↓</span></span>
+    </a></li>
+    <li><a class="dl" href="printables/09-name-tents.pdf" download style="--c:var(--dot-1)">
+      <span class="dl-top"><span class="eyebrow">All day</span><i aria-hidden="true"></i></span>
+      <span><b>Name tents</b><br><span class="d">One per person, plus two blanks. Fold along the line.</span></span>
+      <span class="dl-go"><span>Letter ×11</span><span>PDF ↓</span></span>
+    </a></li>
+    <li><a class="dl" href="printables/10-exit-cards.pdf" download style="--c:var(--dot-5)">
+      <span class="dl-top"><span class="eyebrow">Wrap-up</span><i aria-hidden="true"></i></span>
+      <span><b>Exit cards</b><br><span class="d">One word and one thing to try. Four per page, cut into quarters.</span></span>
+      <span class="dl-go"><span>Letter, 4-up</span><span>PDF ↓</span></span>
+    </a></li>
+  </ul>
 
   <div class="card when-list">
     <h3>Timeline</h3>

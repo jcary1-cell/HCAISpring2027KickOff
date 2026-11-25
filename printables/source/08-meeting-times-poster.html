@@ -1,0 +1,32 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Meeting Times</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>@page{size:11in 17in;margin:0}
+:root{--ink:#18202E;--muted:#586174;--line:#C9CFD9;--soft:#EEF0F4;
+--d1:#E39A2D;--d2:#2E58D6;--d3:#D9573F;--d4:#13887D;--d5:#8B4FA6;--note:#FFE98A;--note-ink:#3B3210;
+--fd:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;--fb:"Hanken Grotesk","Helvetica Neue",system-ui,sans-serif;
+--fm:"JetBrains Mono",ui-monospace,Menlo,monospace}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;padding:0;background:#fff;color:var(--ink);font-family:var(--fb)}
+h1,h2,h3{font-family:var(--fd);margin:0;line-height:1.05;text-wrap:balance}
+p{margin:0}
+.sheet{position:relative;overflow:hidden;break-after:page;display:flex;flex-direction:column}
+.sheet:last-child{break-after:auto}
+.eyebrow{font-family:var(--fm);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dots{display:inline-flex;gap:.35em}.dots i{display:block;width:.8em;height:.8em;border-radius:50%}
+.foot{display:flex;justify-content:space-between;align-items:center;font-family:var(--fm);color:var(--muted);letter-spacing:.06em}
+
+.sheet{width:11in;height:17in;padding:.7in}
+h1{font-size:96pt;font-weight:800;letter-spacing:-.03em;line-height:.92;margin-top:.25in}
+.sub{font-size:20pt;color:var(--muted);margin-top:.25in}
+.tbl{flex:1;display:flex;flex-direction:column;margin:.45in 0 .35in}
+.mrow,.hrow{display:grid;grid-template-columns:1.3fr 1.3fr 1.3fr 1.3fr 2.2fr;gap:.18in}
+.hrow{font-family:var(--fm);font-size:11pt;letter-spacing:.1em;color:var(--muted);border-bottom:4px solid var(--ink);padding-bottom:.08in}
+.mrow{flex:1;border-bottom:2px solid var(--line);padding:.15in 0}
+.cell{border-bottom:1.5px dashed var(--line)}
+.dotzone{border-radius:.15in;background:color-mix(in srgb,var(--d5) 9%,#fff)}
+</style></head><body><section class="sheet">
+<span class="eyebrow" style="font-size:12pt">Wrap-up · semester check-ins</span>
+<h1>When should we check in?</h1>
+<p class="sub">Dot every option that works for you. Most dots wins.</p>
+<div class="tbl"><div class="hrow"><span>DAY</span><span>TIME</span><span>HOW OFTEN</span><span>WHERE</span><span>DOTS</span></div><div class="mrow"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="dotzone"></div></div><div class="mrow"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="dotzone"></div></div><div class="mrow"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="dotzone"></div></div><div class="mrow"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="dotzone"></div></div><div class="mrow"><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="cell"></div><div class="dotzone"></div></div></div>
+<div class="foot" style="font-size:11pt"><span>HCAI Faculty Kick Off · January 7, 2027</span><span class="dots"><i style="background:var(--d1)"></i><i style="background:var(--d4)"></i><i style="background:var(--d3)"></i><i style="background:var(--d2)"></i><i style="background:var(--d5)"></i></span></div>
+</section></body></html>
