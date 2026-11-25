@@ -1,0 +1,561 @@
+<title>HCAI Faculty Kick Off Agenda</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a run-of-show. A to-scale 3-hour strip up top, then a two-column sheet:
+   mono time stamps on the left, block content on the right. Each block carries
+   its own "dot sticker" color, echoing the spirit-color dots used in the room. */
+:root {
+  --paper: #F5F6F8;
+  --sheet: #FFFFFF;
+  --ink: #18202E;
+  --muted: #586174;
+  --line: #DCE0E7;
+  --soft: #EDEFF3;
+  --dot-1: #E39A2D;   /* welcome: marigold */
+  --dot-2: #2E58D6;   /* canvas: cobalt */
+  --dot-3: #D9573F;   /* lunch: coral */
+  --dot-4: #13887D;   /* pillars: teal */
+  --dot-5: #8B4FA6;   /* close: plum */
+  --note: #FFE98A;    /* sticky note */
+  --note-ink: #3B3210;
+  --f-display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Hanken Grotesk", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #10141B; --sheet: #171C25; --ink: #E7EAF0; --muted: #9AA3B4;
+    --line: #2A313D; --soft: #1E242F;
+    --dot-1: #F0AE48; --dot-2: #6E8DF2; --dot-3: #EE7A63; --dot-4: #3DB3A6; --dot-5: #B47ECE;
+    --note: #E8CF5C; --note-ink: #2A2408;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #10141B; --sheet: #171C25; --ink: #E7EAF0; --muted: #9AA3B4;
+  --line: #2A313D; --soft: #1E242F;
+  --dot-1: #F0AE48; --dot-2: #6E8DF2; --dot-3: #EE7A63; --dot-4: #3DB3A6; --dot-5: #B47ECE;
+  --note: #E8CF5C; --note-ink: #2A2408;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 4rem;
+}
+.wrap { max-width: 1040px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.12; margin: 0; }
+p { margin: 0; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font-family: var(--f-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--dot-2); outline-offset: 3px; border-radius: 4px; }
+
+/* Header */
+header.top { padding-block: 3.5rem 2.25rem; display: grid; gap: 1.5rem; }
+.title-row { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.5rem; }
+h1 { font-size: clamp(2.3rem, 6vw, 4.1rem); font-weight: 800; letter-spacing: -.025em; max-width: 14ch; }
+h1 .dots { display: inline-flex; gap: .28em; vertical-align: .35em; margin-left: .2em; }
+h1 .dots i { width: .28em; height: .28em; border-radius: 50%; display: block; }
+.meta { display: grid; gap: .35rem; font-size: .95rem; min-width: 0; }
+.meta div { display: flex; gap: .75rem; }
+.meta dt { width: 4.2rem; flex: none; }
+.meta dd { margin: 0; font-weight: 600; }
+.lede { font-size: 1.18rem; max-width: 62ch; color: var(--ink); }
+.lede strong { font-weight: 600; }
+
+/* Timeline strip, drawn to scale: 180 minutes = 100% */
+.strip { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.25rem 1rem; }
+.strip-bar { display: flex; height: 54px; border-radius: 8px; overflow: hidden; gap: 3px; }
+.strip-bar a { display: flex; align-items: center; padding: 0 .6rem; color: #fff; text-decoration: none; font-weight: 600; font-size: .85rem; white-space: nowrap; overflow: hidden; min-width: 0; }
+.strip-bar a span { overflow: hidden; text-overflow: ellipsis; }
+.strip-bar a:hover { filter: brightness(1.08); }
+.strip-ticks { position: relative; height: 1.4rem; margin-top: .45rem; font-size: .72rem; color: var(--muted); }
+.strip-ticks span { position: absolute; transform: translateX(-50%); }
+.strip-ticks span:first-child { transform: none; }
+.strip-ticks span:last-child { transform: translateX(-100%); }
+.legend { display: flex; flex-wrap: wrap; gap: .4rem 1.25rem; margin-top: .6rem; font-size: .88rem; }
+.legend span { display: inline-flex; align-items: center; gap: .45rem; }
+.legend i { width: .7rem; height: .7rem; border-radius: 50%; display: block; flex: none; }
+
+.thread { margin-top: 1.5rem; display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start;
+  background: var(--soft); border-radius: 14px; padding: 1.25rem 1.4rem; }
+.thread .knot { width: 2.4rem; height: 2.4rem; border-radius: 50%; background: conic-gradient(var(--dot-1) 0 20%, var(--dot-4) 0 40%, var(--dot-3) 0 60%, var(--dot-2) 0 80%, var(--dot-5) 0); }
+.thread h2 { font-size: 1.05rem; margin-bottom: .25rem; }
+.thread p { color: var(--muted); max-width: 68ch; min-width: 0; }
+
+.callout { display: flex; gap: .75rem; font-size: .93rem; padding: .85rem 1rem; border-radius: 10px; border: 1px dashed var(--line); color: var(--muted); background: var(--sheet); }
+.callout b { color: var(--ink); font-weight: 600; }
+
+/* Blocks */
+main { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
+.block { --c: var(--dot-1); display: grid; grid-template-columns: 170px minmax(0, 1fr); background: var(--sheet); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; scroll-margin-top: 1rem; }
+.when { padding: 1.6rem 1.3rem; border-right: 1px solid var(--line); display: flex; flex-direction: column; gap: .7rem; background: color-mix(in srgb, var(--c) 7%, var(--sheet)); }
+.when .sticker { width: 1.5rem; height: 1.5rem; border-radius: 50%; background: var(--c); box-shadow: inset 0 -2px 0 rgba(0,0,0,.12); }
+.when .t { font-family: var(--f-mono); font-size: 1.05rem; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.3; }
+.when .dur { font-family: var(--f-mono); font-size: .75rem; color: var(--muted); }
+.when .lead { font-size: .85rem; color: var(--muted); margin-top: auto; }
+.when .lead b { display: block; color: var(--ink); font-weight: 600; }
+.body { padding: 1.6rem 1.8rem 1.9rem; display: grid; gap: 1.25rem; min-width: 0; }
+.body > h2 { font-size: clamp(1.45rem, 3vw, 1.85rem); font-weight: 700; letter-spacing: -.015em; }
+.body > .sub { color: var(--muted); max-width: 64ch; margin-top: -.6rem; }
+.body h3 { font-size: 1.05rem; font-weight: 700; display: flex; align-items: baseline; gap: .6rem; }
+.body h3 .min { font-family: var(--f-mono); font-size: .75rem; font-weight: 400; color: var(--muted); }
+.body p, .body li { max-width: 66ch; }
+.body ul { margin: 0; padding-left: 1.15rem; display: grid; gap: .35rem; }
+.body li::marker { color: var(--c); }
+.part { display: grid; gap: .5rem; }
+.tag { display: inline-block; font-family: var(--f-mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; padding: .15rem .5rem; border-radius: 99px; background: color-mix(in srgb, var(--c) 16%, var(--sheet)); color: var(--ink); vertical-align: .15em; }
+
+/* Sticky-note prompts: the actual words people will see */
+.prompt { background: var(--note); color: var(--note-ink); padding: 1.1rem 1.25rem; font-family: var(--f-display); font-weight: 600; font-size: 1.15rem; line-height: 1.35; max-width: 34rem; transform: rotate(-.6deg); box-shadow: 0 1px 0 rgba(0,0,0,.06), 0 8px 18px -10px rgba(0,0,0,.35); border-radius: 2px; }
+
+/* Steps in the pillars block are a real sequence, so they get numbers */
+.steps { list-style: none; padding: 0 !important; counter-reset: s; display: grid; gap: 1.1rem !important; }
+.steps > li { counter-increment: s; display: grid; grid-template-columns: 2.2rem minmax(0,1fr); gap: .9rem; max-width: none; }
+.steps > li::before { content: counter(s); width: 2.2rem; height: 2.2rem; border-radius: 50%; border: 2px solid var(--c); display: grid; place-items: center; font-family: var(--f-mono); font-weight: 600; font-size: .9rem; }
+.steps > li > div { display: grid; gap: .45rem; min-width: 0; }
+
+/* Tables */
+.tbl { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: .93rem; }
+th, td { text-align: left; padding: .65rem .85rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th { font-family: var(--f-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 400; background: var(--soft); }
+td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--muted); }
+
+/* Hunt checklist */
+.hunt { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .5rem; list-style: none; padding: 0 !important; }
+.hunt li { display: flex; gap: .6rem; align-items: flex-start; padding: .6rem .75rem; border-radius: 8px; background: var(--soft); font-size: .93rem; }
+.hunt li::before { content: ""; width: .95rem; height: .95rem; border: 1.5px solid var(--muted); border-radius: 3px; flex: none; margin-top: .25rem; }
+
+/* Menu */
+.menu { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; }
+.course h4 { font-family: var(--f-display); font-size: 1rem; margin: 0 0 .15rem; }
+.course .eyebrow { display: block; margin-bottom: .55rem; }
+.course ul { padding-left: 0 !important; list-style: none; gap: .6rem !important; font-size: .92rem; }
+.course li { padding-bottom: .6rem; border-bottom: 1px dotted var(--line); }
+.course li:last-child { border-bottom: 0; }
+
+/* Tight / Loose */
+.tl { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .6rem; }
+.tl > div { border-radius: 10px; padding: .9rem 1rem; display: grid; gap: .5rem; align-content: start; font-size: .9rem; }
+.tl > div:nth-child(1) { background: color-mix(in srgb, var(--c) 26%, var(--sheet)); }
+.tl > div:nth-child(2) { background: color-mix(in srgb, var(--c) 13%, var(--sheet)); }
+.tl > div:nth-child(3) { background: var(--soft); }
+.tl b { font-family: var(--f-display); font-size: .98rem; }
+.tl em { color: var(--muted); }
+
+/* Prep */
+section.prep { margin-top: 3.5rem; display: grid; gap: 1.5rem; }
+section.prep > h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); font-weight: 800; letter-spacing: -.02em; }
+.cols { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+.card { background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.3rem; display: grid; gap: .8rem; align-content: start; min-width: 0; }
+.card h3 { font-size: 1.05rem; }
+.checks { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; font-size: .93rem; }
+.checks label { display: flex; gap: .55rem; align-items: flex-start; cursor: pointer; }
+.checks input { margin-top: .3rem; accent-color: var(--dot-4); flex: none; }
+.checks input:checked + span { color: var(--muted); text-decoration: line-through; }
+.when-list { display: grid; gap: 1rem; }
+.when-list .eyebrow { margin-bottom: .3rem; display: block; }
+.when-list ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .3rem; font-size: .93rem; }
+
+.questions { counter-reset: q; display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; list-style: none; margin: 0; padding: 0; }
+.questions li { counter-increment: q; background: var(--sheet); border: 1px solid var(--line); border-radius: 14px; padding: 1.15rem 1.25rem; display: grid; gap: .35rem; min-width: 0; }
+.questions li::before { content: "Q" counter(q); font-family: var(--f-mono); font-size: .75rem; color: var(--muted); }
+.questions b { font-family: var(--f-display); font-size: 1.05rem; }
+.questions p { color: var(--muted); font-size: .93rem; }
+
+footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--line); font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem; }
+
+@media (max-width: 860px) {
+  .cols { grid-template-columns: minmax(0,1fr); }
+  .menu, .tl { grid-template-columns: minmax(0,1fr); }
+}
+@media (max-width: 700px) {
+  .block { grid-template-columns: minmax(0,1fr); }
+  .when { border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; padding: 1rem 1.25rem; }
+  .when .lead { margin-top: 0; width: 100%; }
+  .when .lead b { display: inline; }
+  .body { padding: 1.25rem 1.25rem 1.5rem; }
+  .hunt, .questions { grid-template-columns: minmax(0,1fr); }
+  .strip-bar a span { display: none; }
+  .strip-ticks span:nth-child(2), .strip-ticks span:nth-child(4) { display: none; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .strip-bar a { transition: filter .15s; }
+}
+</style>
+
+<div class="wrap">
+
+<header class="top">
+  <span class="eyebrow">Human-Centered AI · Faculty Kick Off · Run of show</span>
+  <div class="title-row">
+    <h1>HCAI Faculty Kick Off<span class="dots" aria-hidden="true"><i style="background:var(--dot-1)"></i><i style="background:var(--dot-4)"></i><i style="background:var(--dot-3)"></i></span></h1>
+    <dl class="meta">
+      <div><dt class="eyebrow">When</dt><dd>Thursday, January 7, 2027 · <span class="mono">11:30–2:30</span></dd></div>
+      <div><dt class="eyebrow">Where</dt><dd>J. Murrey Atkins Library, Visualization Lab</dd></div>
+      <div><dt class="eyebrow">Host</dt><dd>Justin Cary, Program Director, HCAI</dd></div>
+    </dl>
+  </div>
+  <p class="lede">One afternoon, three things: <strong>meet the people you'll teach alongside</strong>, <strong>decide together what makes a course an HCAI course</strong>, and <strong>see that shared vision come to life in the HCAI Canvas Hub and blueprint courses</strong>. Bring a pen. You'll be writing on walls, tables, and sticky notes, and you won't be sitting still for long.</p>
+
+  <div class="strip" aria-label="Agenda timeline, drawn to scale">
+    <div class="strip-bar">
+      <a href="#welcome" style="flex:20;background:var(--dot-1)"><span>Welcome</span></a>
+      <a href="#pillars" style="flex:55;background:var(--dot-4)"><span>Shared vision</span></a>
+      <a href="#lunch" style="flex:40;background:var(--dot-3)"><span>Working lunch</span></a>
+      <a href="#canvas" style="flex:55;background:var(--dot-2)"><span>HCAI Canvas Hub</span></a>
+      <a href="#close" style="flex:10;background:var(--dot-5)"><span></span></a>
+    </div>
+    <div class="strip-ticks mono" aria-hidden="true">
+      <span style="left:0">11:30</span>
+      <span style="left:11.11%">11:50</span>
+      <span style="left:41.67%">12:45</span>
+      <span style="left:63.89%">1:25</span>
+      <span style="left:100%">2:30</span>
+    </div>
+    <div class="legend">
+      <span><i style="background:var(--dot-1)"></i>Welcome + intros</span>
+      <span><i style="background:var(--dot-4)"></i>Shared vision</span>
+      <span><i style="background:var(--dot-3)"></i>Working lunch</span>
+      <span><i style="background:var(--dot-2)"></i>Canvas Hub (CTL)</span>
+      <span><i style="background:var(--dot-5)"></i>Logistics + close</span>
+    </div>
+  </div>
+
+  <div class="thread">
+    <div class="knot" aria-hidden="true"></div>
+    <div>
+      <h2>One thread through the whole afternoon</h2>
+      <p>Nothing made today gets thrown away. Each person's Slide 1 spirit color becomes their dot sticker for voting on pillars minutes later. The AI questions from the intros land on the lunch tables. The pillar wall stays up all day, so when CTL opens the blueprints, everyone can see exactly where the shared vision lives in Canvas. By 2:30 the room has built one thing together, and the walls show it.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- WELCOME -->
+<article class="block" id="welcome" style="--c:var(--dot-1)">
+  <div class="when">
+    <span class="sticker" aria-hidden="true"></span>
+    <span class="t">11:30<br>–11:50</span>
+    <span class="dur">20 min</span>
+    <p class="lead"><b>Justin</b>Program Director</p>
+  </div>
+  <div class="body">
+    <h2>Welcome + introductions</h2>
+    <p class="sub">Your four-slide intros, plus one small paper twist so everyone leaves with notes from colleagues.</p>
+
+    <div class="part">
+      <h3>As people arrive <span class="min">11:20–11:30</span></h3>
+      <ul>
+        <li>Name tent at each seat with a stack of index cards and a pen.</li>
+        <li>A <b>"Still Wondering"</b> poster on the wall. Questions can go up anytime, all day.</li>
+        <li>A <b>"Where are you coming from?"</b> poster by the door. People put a sticker on their home department. It gets people talking before the official start.</li>
+      </ul>
+    </div>
+
+    <div class="part">
+      <h3>Welcome <span class="min">3 min</span></h3>
+      <p>Why we're here, the three goals for the day, and a heads-up that this is a working session.</p>
+    </div>
+
+    <div class="part">
+      <h3>Slide intros + Question Catch <span class="min">15 min</span></h3>
+      <ul>
+        <li>Run the deck as planned. Slide 1 (animal + spirit color) plays silently, then 30 seconds each on AI background, one big AI question, and interdisciplinary work.</li>
+        <li><b>Question Catch:</b> during each person's big AI question, everyone else writes a quick reaction on an index card with the presenter's name on top. "Me too." "I have thoughts on this." A follow-up question.</li>
+        <li>Collect the cards by presenter and hand each stack over at the end. Built-in conversation starters for lunch.</li>
+        <li><span class="tag">Facilitator</span> Jot down each person's spirit color. You'll hand out matching dot stickers in about 20 minutes.</li>
+      </ul>
+    </div>
+
+    <div class="callout"><span class="mono">⏱</span><p><b>Keep it moving.</b> Put a countdown timer on the big screen and let the 30-second limit be part of the fun. A light round of applause between people keeps the energy up and the transitions quick.</p></div>
+  </div>
+</article>
+
+<!-- PILLARS -->
+<article class="block" id="pillars" style="--c:var(--dot-4)">
+  <div class="when">
+    <span class="sticker" aria-hidden="true"></span>
+    <span class="t">11:50<br>–12:45</span>
+    <span class="dur">55 min</span>
+    <p class="lead"><b>Justin</b>Program Director</p>
+  </div>
+  <div class="body">
+    <h2>Teaching and Learning in Human-Centered AI: A Shared Vision</h2>
+    <p class="sub">Goal: leave with a draft of 4–6 shared pillars for HCAI courses, and a clear line between what's shared across the program and what stays with each faculty member. Doing this first, while energy is high, means everything after it has something to point back to. Clear a long wall and tape up butcher paper before people arrive.</p>
+
+    <ol class="steps">
+      <li><div>
+        <h3>Frame it <span class="min">5 min</span></h3>
+        <p>Shared pillars give students a coherent program. They don't mean everyone teaches the same way. Introduce <b>tight and loose</b>: a few things we hold tight in every HCAI course, and plenty we keep loose so each person teaches their own way.</p>
+      </div></li>
+
+      <li><div>
+        <h3>Silent brainstorm <span class="min">8 min</span></h3>
+        <p>Sticky notes, one idea per note, five to seven each. Writing silently first means the loudest voice doesn't set the agenda before everyone has thought.</p>
+        <div class="prompt">By the time a student finishes the HCAI program, they should be able to… care about… have experienced…</div>
+      </div></li>
+
+      <li><div>
+        <h3>Cluster it <span class="min">12 min</span></h3>
+        <ul>
+          <li>Everyone puts their notes on the wall. No explanation needed.</li>
+          <li><b>Silent clustering, 5 min:</b> anyone can move any note to group similar ideas. If two people keep moving the same note, make a copy.</li>
+          <li><b>Then talk, 7 min:</b> name each cluster on a bigger card. These are the candidate pillars.</li>
+        </ul>
+      </div></li>
+
+      <li><div>
+        <h3>Dot vote <span class="min">5 min</span></h3>
+        <p>Each person gets <b>three dots in their spirit color</b>. Stack them however you like on the clusters that matter most program-wide. Circle the top 4–6. That's the draft.</p>
+      </div></li>
+
+      <li><div>
+        <h3>Tight / Loose wall <span class="min">20 min</span></h3>
+        <p>Split into 2–3 small groups, each taking 1–2 pillars. Groups write concrete examples on sticky notes and place them in one of three columns. Example for a pillar like "Ethics and impact":</p>
+        <div class="tl">
+          <div><b>Every HCAI course does this</b><em>Students examine who's affected by an AI system</em></div>
+          <div><b>Every course touches this, its own way</b><em>Some kind of reflection on responsible use</em></div>
+          <div><b>Your course, your call</b><em>Which frameworks, case studies, or tools you use</em></div>
+        </div>
+        <p>One-minute report back from each group. Disagreements are useful. Mark them with a "?" and keep moving. They become topics for the semester check-ins.</p>
+      </div></li>
+
+      <li><div>
+        <h3>Course map <span class="min">5 min</span></h3>
+        <p>A poster with the final pillars across the top and each person's course down the side. Everyone places a spirit-color dot wherever their course hits a pillar. You'll see the program's strengths and gaps in five minutes. <b>Leave every wall up.</b> Lunch and the Canvas hour both build on it.</p>
+      </div></li>
+    </ol>
+  </div>
+</article>
+
+<!-- LUNCH -->
+<article class="block" id="lunch" style="--c:var(--dot-3)">
+  <div class="when">
+    <span class="sticker" aria-hidden="true"></span>
+    <span class="t">12:45<br>–1:25</span>
+    <span class="dur">40 min</span>
+    <p class="lead"><b>Everyone</b>Justin keeps time</p>
+  </div>
+  <div class="body">
+    <h2>Working lunch: Food for Thought</h2>
+    <p class="sub">A grab-and-go spread from Chartwells: sandwiches, cookies, and coffee. Relaxed, with just enough structure that conversation goes past small talk.</p>
+
+    <div class="part">
+      <h3>Table setup</h3>
+      <ul>
+        <li><b>Food table off to the side</b> so the seating tables stay clear for paper and markers. Cookies and coffee can sit at the far end, which gives people a reason to get up again later.</li>
+        <li><b>Butcher paper over the tables</b> with markers. People doodle and jot as they talk. Photograph it afterward. It's often the most honest record of what people care about.</li>
+        <li><b>A conversation menu</b> at each table, laid out like a restaurant menu.</li>
+        <li>A few of the <b>big AI questions from the intros</b>, written on cards and dropped on each table.</li>
+      </ul>
+    </div>
+
+    <div class="menu">
+      <div class="course">
+        <span class="eyebrow">Appetizers</span>
+        <h4>Easy openers</h4>
+        <ul>
+          <li>What's a piece of tech you've had a love/hate relationship with?</li>
+          <li>What's the best class you ever took, and what made it great?</li>
+          <li>What did you think AI would look like when you were a kid?</li>
+        </ul>
+      </div>
+      <div class="course">
+        <span class="eyebrow">Entrées</span>
+        <h4>The meatier stuff</h4>
+        <ul>
+          <li>What do your students already know about AI that you don't?</li>
+          <li>Where have you seen AI go wrong in your field? What would a human-centered fix have looked like?</li>
+          <li>One thing you'd never let AI do in your classroom, and one thing you'd love it to do?</li>
+          <li>Which pillar from this morning are you most excited to teach? Which one makes you a little nervous?</li>
+          <li>What does "human-centered" mean to you, in one sentence?</li>
+        </ul>
+      </div>
+      <div class="course">
+        <span class="eyebrow">Dessert</span>
+        <h4>Looking ahead</h4>
+        <ul>
+          <li>If this program is wildly successful in five years, what are our graduates doing?</li>
+          <li>Who in this room would you like to collaborate with, and on what?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="part">
+      <h3>The cookie-and-coffee swap <span class="min">about 1:10</span></h3>
+      <p>Announce cookies and a coffee refill, and ask everyone to come back to a seat next to someone they haven't talked to yet. It takes 30 seconds and doubles the real conversations. It also wakes everyone up before the Canvas hour.</p>
+    </div>
+  </div>
+</article>
+
+<!-- CANVAS -->
+<article class="block" id="canvas" style="--c:var(--dot-2)">
+  <div class="when">
+    <span class="sticker" aria-hidden="true"></span>
+    <span class="t">1:25<br>–2:20</span>
+    <span class="dur">55 min</span>
+    <p class="lead"><b>CTL team</b>Kiran Budhrani, Hailey Stroder, Jordan Register</p>
+  </div>
+  <div class="body">
+    <h2>Welcome to the HCAI Canvas Hub</h2>
+    <p class="sub">CTL's hour, and the payoff for the morning. Faculty walk in with fresh pillars on the wall, so this is where the shared vision meets real courses. A suggested shape for CTL to take, change, or ignore.</p>
+
+    <div class="tbl">
+      <table>
+        <thead><tr><th>Time</th><th>What</th><th>Why it helps</th></tr></thead>
+        <tbody>
+          <tr><td class="n">15 min</td><td>Tour of the Hub: what's in it and where support lives</td><td>The basic map</td></tr>
+          <tr><td class="n">10 min</td><td><b>How blueprints work: what syncs, what's locked, what's yours to change</b></td><td>The Tight / Loose wall from this morning, made real in Canvas. Locked looks a lot like "tight." Editable is your call.</td></tr>
+          <tr><td class="n">20 min</td><td><b>Blueprint scavenger hunt</b>, in pairs</td><td>People click around their own shell instead of watching a screen</td></tr>
+          <tr><td class="n">10 min</td><td>Q&amp;A from the "Still Wondering" board</td><td>Answers what people actually want to know</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="part">
+      <h3>Blueprint scavenger hunt <span class="min">20 min · pairs</span></h3>
+      <p>Pair people from different departments. Each pair gets a half-sheet checklist and stars anything confusing while CTL circulates. Sample items:</p>
+      <ul class="hunt">
+        <li>One place a pillar from this morning already shows up</li>
+        <li>One locked item and one item you can edit</li>
+        <li>The HCAI AI-use / syllabus statement</li>
+        <li>Where to request a change to the blueprint</li>
+        <li>The accessibility checker</li>
+        <li>One resource you didn't know existed and would actually use</li>
+      </ul>
+    </div>
+
+    <div class="part">
+      <h3>"Still Wondering" parking lot</h3>
+      <p>The poster that's been up since people walked in. CTL answers the Canvas questions in their last 10 minutes, and anything left over gets an owner during the wrap-up.</p>
+    </div>
+
+    <div class="part">
+      <h3>Worth covering if there's time</h3>
+      <ul>
+        <li>How the blueprint gets updated mid-semester, and how faculty hear about changes</li>
+        <li>A short "week before classes" checklist</li>
+        <li>Who to contact for what: CTL, Justin, or IT</li>
+      </ul>
+    </div>
+  </div>
+</article>
+
+<!-- CLOSE -->
+<article class="block" id="close" style="--c:var(--dot-5)">
+  <div class="when">
+    <span class="sticker" aria-hidden="true"></span>
+    <span class="t">2:20<br>–2:30</span>
+    <span class="dur">10 min</span>
+    <p class="lead"><b>Justin</b>Program Director</p>
+  </div>
+  <div class="body">
+    <h2>Logistics + close</h2>
+    <div class="part">
+      <h3>Semester check-ins <span class="min">4 min</span></h3>
+      <p>A pre-printed poster with 4–5 options, like "Every other Tuesday, 12–12:45, Zoom." Everyone dots what works. Pick the winner on the spot if it's clear, or follow up by email.</p>
+    </div>
+    <div class="part">
+      <h3>Communication pathways <span class="min">3 min</span></h3>
+      <p>Show of hands on where people actually want to talk: a Teams channel, an email list, or a Canvas Hub discussion. Then go back to the "Still Wondering" board and give each open item an owner and a follow-up date.</p>
+    </div>
+    <div class="part">
+      <h3>Exit card <span class="min">3 min</span></h3>
+      <p>On an index card: one word for how you feel about the semester, and one thing you'll try in your course. Collect at the door. Then a group photo in front of the pillar wall.</p>
+    </div>
+  </div>
+</article>
+
+</main>
+
+<section class="prep" id="prep">
+  <h2>Getting ready</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>Supplies</h3>
+      <ul class="checks">
+        <li><label><input type="checkbox" id="s1"><span>Name tents</span></label></li>
+        <li><label><input type="checkbox" id="s2"><span>Index cards, 2–3 packs</span></label></li>
+        <li><label><input type="checkbox" id="s3"><span>Sticky notes, ~10 per person, a couple of colors</span></label></li>
+        <li><label><input type="checkbox" id="s4"><span>Large sticky notes or cardstock for pillar names</span></label></li>
+        <li><label><input type="checkbox" id="s5"><span>Dot stickers in many colors, ~10 per person</span></label></li>
+        <li><label><input type="checkbox" id="s6"><span>Butcher paper roll for tables and walls</span></label></li>
+        <li><label><input type="checkbox" id="s7"><span>Sharpies and chunky poster markers</span></label></li>
+        <li><label><input type="checkbox" id="s8"><span>Painter's tape and pens</span></label></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Print ahead</h3>
+      <ul class="checks">
+        <li><label><input type="checkbox" id="p1"><span>"Where are you coming from?" poster</span></label></li>
+        <li><label><input type="checkbox" id="p2"><span>Scavenger hunt half-sheets (with CTL)</span></label></li>
+        <li><label><input type="checkbox" id="p3"><span>"Still Wondering" poster</span></label></li>
+        <li><label><input type="checkbox" id="p4"><span>Conversation menus on cardstock</span></label></li>
+        <li><label><input type="checkbox" id="p5"><span>Tight / Loose column headers</span></label></li>
+        <li><label><input type="checkbox" id="p6"><span>Course map poster</span></label></li>
+        <li><label><input type="checkbox" id="p7"><span>Meeting-time options poster</span></label></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Tech</h3>
+      <ul class="checks">
+        <li><label><input type="checkbox" id="t1"><span>Intro deck compiled and tested on the Viz Lab screens</span></label></li>
+        <li><label><input type="checkbox" id="t2"><span>Visible countdown timer for intros</span></label></li>
+        <li><label><input type="checkbox" id="t3"><span>Canvas logins work in the lab (accounts, Wi-Fi, laptops or lab machines)</span></label></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card when-list">
+    <h3>Timeline</h3>
+    <div class="cols">
+      <div><span class="eyebrow">Two weeks before</span>
+        <ul><li>Send the slide template and deadline</li><li>Confirm CTL's hour plan</li><li>Place the Chartwells order and check dietary needs</li><li>Confirm you can tape to Viz Lab walls and move tables</li></ul></div>
+      <div><span class="eyebrow">Day before → day of</span>
+        <ul><li>Print everything and prep tables</li><li>Sort dot sheets by color</li><li>Photograph every wall, poster, and tablecloth before it comes down</li><li>Collect exit cards</li></ul></div>
+      <div><span class="eyebrow">Within a week</span>
+        <ul><li>Type up the draft pillars and Tight / Loose wall, send for comment</li><li>Send the check-in meeting invite</li><li>Close the loop on "Still Wondering" items</li></ul></div>
+    </div>
+  </div>
+
+  <h2 style="margin-top:1rem">Still to decide</h2>
+  <ol class="questions" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr))">
+    <li><b>Are there draft pillars already?</b><p>If the program has outcomes or values written down, start with those on the wall and let faculty react, add, and remix. Saves time and connects to work already done.</p></li>
+    <li><b>Who presents in the intros?</b><p>All nine people listed, or teaching faculty only?</p></li>
+    <li><b>Laptops for the Canvas hour?</b><p>Will faculty bring their own, or does the Viz Lab provide machines?</p></li>
+  </ol>
+</section>
+
+<footer>
+  <span>HCAI Faculty Kick Off · January 7, 2027</span>
+  <span class="mono">Run of show</span>
+</footer>
+
+</div>
+
+<script>
+(function () {
+  var KEY = "hcai-kickoff-checks";
+  var state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+  document.querySelectorAll(".checks input").forEach(function (box) {
+    if (state[box.id]) box.checked = true;
+    box.addEventListener("change", function () {
+      state[box.id] = box.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+    });
+  });
+})();
+</script>
